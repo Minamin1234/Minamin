@@ -128,10 +128,11 @@ server {
                 </div>
                 <p>PowerShellなり、コマンドプロンプトなり、コマンドを叩く</p>
                 <code>cd [用意したファイルがあるディレクトリ]<br>
+                    heroku create [アプリ名]<br>
                     heroku login<br>
-                    heroku stack:set container<br>
-                    heroku container:push web<br>
-                    heroku container:release web
+                    heroku stack:set container --app [アプリ名]<br>
+                    heroku container:push web --app [アプリ名]<br>
+                    heroku container:release web --app [アプリ名]
                 </code>
 
                 <p>おわり</p>
