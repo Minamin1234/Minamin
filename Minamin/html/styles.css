@@ -99,6 +99,7 @@ a.menu
 .info article .content
 {
     line-height: 2.0em;
+    padding: 0px;
     font-size: 0.85rem;
 }
 
@@ -109,11 +110,11 @@ a.menu
     color: #222;
     text-align: center;
     background-color: rgb(25, 53, 68);
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .blogs .contents
 {
-    padding-left: 30px;
-    padding-right: 30px;
     margin: 0 auto;
     width: 100%;
     max-width: 1000px;
@@ -166,8 +167,10 @@ a.menu
 
 .content
 {
-    padding-left: 20px;
-    padding-right: 20px;
+    
+    padding-left: 20%;
+    padding-right: 20%;
+    width: auto;
 }
 
 .content .title
@@ -248,4 +251,5 @@ code
     background-color: #0a0a0a;
     border-radius: 5px;
     border: solid 1px #D6DDE4;
+    white-space: pre-wrap;
 }
