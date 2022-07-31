@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>  
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../styles.css">
+        <title>みなみん | Minamin</title>
+    </head>
+    
+    <body>
+        <h1 class="name">みなみん</h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu">
+                    <a href="../../index.html" class="menu">Home</a>
+                </li>
+                <li class="menu">
+                    <a href="../../blog.html" class="menu">Blog</a>
+                </li>
+                <li class="menu">
+                    <a href="../../musics.html" class="menu">Musics</a>
+                </li>
+                <li class="menu">
+                    <a href="../../devs.html" class="menu">Develops</a>
+                </li>
+                <li class="menu">
+                    <a href="../../about.html" class="menu">About</a>
+                </li>
+                <li class="menu">
+                    <a href="../../sns.html" class="menu">SNS</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="title">
+                <h2>HerokuでWebサーバ構築</h2>
+                <div class="date">
+                    <h4>2022.07.31</h4>
+                </div>
+            </div>
+            <div class="desc">
+                <p>こんにちは。みなみんです。</p>
+                <p>Herokuでサーバを構築してみた時のメモ。</p>
+                <h3>用いる環境</h3>
+                <ul>
+                    <li>Heroku</li>
+                    <li>Nginx (Docker内で構築)</li>
+                    <li>Docker</li>
+                    <li>WSL (Windows)
+                        <ul><li>Dockerの動作する際に必要</li></ul>
+                    </li>
+                </ul>
+                <h3>構築方法</h3>
+                <div class="speech">
+                    <h4>Heroku垢の用意</h4>
+                </div>
+                <p>適当に作っとこか。</p>
+                <div class="speech">
+                    <h4>Dockerを用意しておく</h4>
+                </div>
+                <p>適当にDockerを用意しとけ。</p>
+                <p>Windowsの場合、後の起動時にWSLが入ってなかったら入れさせられる。</p>
+                <div class="speech">
+                    <h4>Herokuサーバにデプロイするファイルの用意</h4>
+                </div>
+                <p>必要最低限のファイルを用意します。</p>
+                <ul>
+                    <li>Dockerfile</li>
+                    <li>heroku.yml</li>
+                    <li>nginx.conf</li>
+                    <li>index.html</li>
+                </ul>
+                <p>Dockerfile</p>
+                <pre>
+                    <code>
+FROM nginx
+
+ENV PORT=8080
+COPY html /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
+                    </code>
+                </pre>
+
+                <p>heroku.yml</p>
+                <pre>
+                    <code>
+build:
+    docker:
+    web: Dockderfile
+                    </code>
+                </pre>
+
+                <p>nginx.conf</p>
+                <pre>
+                    <code>
+server {
+    listen $PORT;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+}
+                    </code>
+                </pre>
+
+                <p>index.html</p>
+                <pre>
+                    <code>Hello World!</code>
+                </pre>
+
+                <p>index.htmlは<code>[現在のディレクトリ]/html/index.html</code>に保存します。</p>
+                <p>最終的には以下のような配置になっているはず。</p>
+                <pre>
+                    <code>
+                        |-Dockerfile
+                        |-heroku.yml
+                        |-nginx.conf
+                        |-html
+                           |-index.html
+                    </code>
+                </pre>
+
+                <div class="speech">
+                    <h4>コンテナの作成とHerokuサーバへのデプロイ</h4>
+                </div>
+                <p>PowerShellなり、コマンドプロンプトなり、コマンドを叩く</p>
+                <code>cd [用意したファイルがあるディレクトリ]<br>
+                    heroku login<br>
+                    heroku stack:set container<br>
+                    heroku container:push web<br>
+                    heroku container:release web
+                </code>
+
+                <p>おわり</p>
+
+                <h3>最後に</h3>
+                <p>一連のコマンドをシェルスクリプトなりPowerShellスクリプトなり、自動化しても良さそう。</p>
+            </div>
+        </div>
+    </body>
+</html>
+<!--
+<div class="speech">
+    <h3>吹き出し</h3>
+</div>
+-->
