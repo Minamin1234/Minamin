@@ -1,0 +1,240 @@
+body
+{
+    background-color: rgb(25, 53, 68);
+}
+
+body,p,h1,h2
+{
+    color: white;
+    font-family: 'ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'Arial',sans-serif;
+}
+
+h1.name
+{
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+nav
+{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(53, 65, 52);
+    padding-top: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+ul.menu
+{
+    display: flex;
+}
+
+li.menu
+{
+    list-style: none;
+}
+
+a.menu
+{
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+    color: rgb(100, 255, 216);
+    margin-right: 35px;
+}
+
+.info
+{
+    padding: 20px 0 30px;
+    color: rgb(255, 250, 250);
+    text-align: center;
+    background-color: rgb(25, 53, 68);
+    border-bottom: solid 1px;
+    margin: 10px;
+}
+.info .contents
+{
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 750px;
+}
+.info h1
+{
+    display: inline-block;
+    margin: 0 auto 40px;
+    padding-bottom: 10px;
+    font-size:  1.25rem;
+    font-weight: 700;
+    border-bottom: 4px solid rgb(100, 255, 216);
+}
+.info article
+{
+    margin-bottom: 40px;
+    margin-right: 40px;
+    padding: 40px 40px 35px;
+    text-align: left;
+    border-radius: 20px;
+    background-color: rgb(35, 78, 100);
+}
+.info article .text_date
+{
+    font-size: 0.85;
+}
+.info article h2
+{
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    font-size: 1.15rem;
+    line-height: 1.8em;
+    border-bottom: 2px solid rgb(100, 255, 216);
+}
+.info article .content
+{
+    line-height: 2.0em;
+    font-size: 0.85rem;
+}
+
+
+.blogs
+{
+    padding: 80px 0 100px;
+    color: #222;
+    text-align: center;
+    background-color: rgb(25, 53, 68);
+}
+.blogs .contents
+{
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+}
+.blogs h1
+{
+    display: inline-block;
+    margin: 0 auto 40px;
+    padding-bottom: 10px;
+    font-size:  1.25rem;
+    font-weight: 700;
+    border-bottom: 4px solid rgb(100, 255, 216);
+}
+.blogs a
+{
+    text-decoration: none;
+}
+.blogs article
+{
+    margin-bottom: 40px;
+    padding: 40px 40px 35px;
+    text-align: left;
+    border-bottom: solid 4px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: rgb(35, 78, 100); 
+}
+.blogs article .text_date
+{
+    font-size: 0.85;
+}
+.blogs article h2
+{
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    font-size: 1.15rem;
+    line-height: 1.8em;
+    border-bottom: 2px solid rgb(100, 255, 216);
+}
+.blogs article .content
+{
+    line-height: 2.0em;
+    font-size: 0.85rem;
+}
+
+.info .contents iframe
+{
+    border-radius: 20px;
+}
+
+.content
+{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content .title
+{
+}
+
+.content .title h1
+{
+    border-bottom: solid 3px;
+}
+
+.content .title .date
+{
+    text-align: right;
+}
+
+.content .desc h3
+{
+    border-bottom: solid 1px;
+}
+
+.content .desc
+{
+    padding-left: 0em;
+}
+
+.content .desc .pimg
+{
+    text-align: center;
+}
+.content .desc p img
+{
+    width: 300px;
+}
+
+.info .contents #twitter .twitter-timeline
+{
+    background-color: #222;
+    border-radius: 20px;
+    max-height: 1000px;
+}
+
+.content .desc .speech
+{
+    position: relative;
+    background:rgb(76, 86, 85);
+    border-radius:20px;
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+    margin-bottom:30px;
+}
+.content .desc .speech::before
+{
+    position:absolute;
+    content:"";
+    border-top:20px solid rgb(76, 86, 85);
+    border-right:20px solid transparent;
+    border-left:20px solid transparent;
+    top: 100%;
+    left: 2%;
+}
+
+
+code
+{
+    font-family: Consolas, 'Courier New', Meiryo,monospace;
+    display: inline-block;
+    padding: 0.1em 0.25em;
+    color: #444;
+    background-color: #E7EDF3;
+    border-radius: 5px;
+    border: solid 1px #D6DDE4;
+}
