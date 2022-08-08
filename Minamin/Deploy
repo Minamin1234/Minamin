@@ -1,0 +1,5 @@
+#!/bin/sh
+heroku stack:set container --app minamin
+heroku container:login
+heroku container:push web --app minamin
+heroku container:release web --app minamin

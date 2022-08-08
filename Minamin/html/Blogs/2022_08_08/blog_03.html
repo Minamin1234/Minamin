@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>  
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../styles.css">
+        <title>みなみん | Minamin</title>
+    </head>
+    
+    <body>
+        <h1 class="name">みなみん</h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu">
+                    <a href="../../index.html" class="menu">Home</a>
+                </li>
+                <li class="menu">
+                    <a href="../../blog.html" class="menu">Blog</a>
+                </li>
+                <li class="menu">
+                    <a href="../../musics.html" class="menu">Musics</a>
+                </li>
+                <li class="menu">
+                    <a href="../../devs.html" class="menu">Develops</a>
+                </li>
+                <li class="menu">
+                    <a href="../../about.html" class="menu">About</a>
+                </li>
+                <li class="menu">
+                    <a href="../../sns.html" class="menu">SNS</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="title">
+                <h1>macOSでgccを使う</h1>
+                <div class="date">
+                    <h4>2022.08.08</h4>
+                </div>
+            </div>
+            <div class="desc">
+                <p>macOSでGCCを使ってコンパイル・実行させる。
+                </p>
+                <h3>環境</h3>
+                <ul>
+                    <li>Macbook Pro (2020,Intel,macOS Monterey 12.5)</li>
+                    <li>ターミナルでCLTをインストール済み</li>
+                    <li>Homebrewインストール済み</li>
+                </ul>
+                
+                <h3>手順</h3>
+                <div class="speech">
+                    <h4>brewからgccをインストール</h4>
+                </div>
+                <p>以下のコマンドでgccをインストール。</p>
+                <pre>
+                    <code>
+$ brew install gcc
+                    </code>
+                </pre>
+                <p>/usr/local/binにあるgccを見ると<br>
+                    筆者のgccのバージョンは11でした</p>
+                    <pre>
+                        <code>
+gcc-11
+g++-11
+                        </code>
+                    </pre>
+                <div class="speech">
+                    <h4>リンク</h4>
+                </div>
+
+                <p>デフォルトだとXCodeのClang?がgcc/g++がリンクされているっぽい。</p>
+                <p>なので、gcc/g++のリンクを削除してからリンクを作成する。</p>
+                <pre>
+                    <code>
+$ rm /usr/local/bin/gcc
+$ rm /usr/local/bin/g++
+$ ln -s /usr/local/bin/gcc-11 /usr/local/bin/gcc
+$ ln -s /usr/local/bin/g++-11 /usr/local/bin/g++
+                    </code>
+                </pre>
+
+                <div class="speech">
+                    <h4>リンクされているか確認</h4>
+                </div>
+                <p>コマンドを叩いて確認してみる</p>
+                <pre>
+                    <code>
+$ gcc --version
+gcc (Homebrew GCC 11.3.0_2) 11.3.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+                        
+$ g++ --version
+g++ (Homebrew GCC 11.3.0_2) 11.3.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+                    </code>
+                </pre>
+                <p>これでリンクが通ってる。</p>
+
+                <div class="speech">
+                    <h4>コンパイルと実行</h4>
+                </div>
+                <p>コンパイルと実行してみる</p>
+                <p>Test.cpp</p>
+                <pre>
+                    <code>
+#include &ltbits/stdc++.h&gt
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello World!" << endl;
+    return 0;
+}
+                    </code>
+                </pre>
+
+                <pre>
+                    <code>
+$ g++ Test.cpp
+$ ./a.out
+Hello World!
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>
+<!--
+<div class="speech">
+    <h3>吹き出し</h3>
+</div>
+
+<pre>
+    <code>
+
+    </code>
+</pre>
+-->
